@@ -1,0 +1,11 @@
+abc=12              
+print("%d",abc)
+"%d"-int
+"%f"-float
+"%c"-char
+output:
+abc 12
+///
+///
+float abc=12;
+printf("abc %f ashasdasjdsa",abc)
