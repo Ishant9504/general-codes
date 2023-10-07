@@ -126,4 +126,5 @@ int main()
 
     traverse(s->top);
     return 0;
+    //nice
 }
