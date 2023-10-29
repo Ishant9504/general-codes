@@ -23,3 +23,4 @@ int main(){
     for(int i=num;i>=0;i--){
         printf("%d, ",arr[i]);
 }
+}

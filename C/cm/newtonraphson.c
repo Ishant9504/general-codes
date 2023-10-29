@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <math.h>
 
-#define f(x) pow(x, 3) - (5 * x) + 1
+#define f(x) cos(x) - x*exp(x)
 
 #define fo(x) 3 * x *x - 5
 

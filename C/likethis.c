@@ -1,75 +1,30 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include<stdio.h>
+#include<stdlib.h>
+typedef struct queue{
+    int size;
+    int rear,front;
+    int * arr;
+}queue;
 
-// Define a structure for a node
-struct Node {
-    int data;
-    struct Node* next;
-};
-
-// Create a structure for the stack
-struct Stack {
-    struct Node* top;
-};
-
-// Function to create a new node with a given data value
-struct Node* newNode(int data) {
-    struct Node* node = (struct Node*)malloc(sizeof(struct Node));
-    if (node == NULL) {
-        printf("Memory allocation failed.\n");
-        exit(1);
+queue * enqueue(queue * q,int data){
+    if(q->rear==q->size-1){
+        printf("Queue Overflow.Cannot add more elements");
+        exit(1) ;
     }
-    node->data = data;
-    node->next = NULL;
-    return node;
-}
-
-// Function to initialize an empty stack
-struct Stack* createStack() {
-    struct Stack* stack = (struct Stack*)malloc(sizeof(struct Stack));
-    if (stack == NULL) {
-        printf("Memory allocation failed.\n");
-        exit(1);
+    else{
+        q->arr[++q->rear]=data;
     }
-    stack->top = NULL;
-    return stack;
+    return q;
 }
+ int main(){
+    queue * q;
+    q->size=10;
+    q->rear=q->front=-1;
+    q->arr=(int*)malloc(q->size*sizeof(int));
 
-// Function to check if the stack is empty
-int isEmpty(struct Stack* stack) {
-    return (stack->top == NULL);
-}
-
-// Function to push an element onto the stack
-void push(struct Stack* stack, int data) {
-    struct Node* node = newNode(data);
-    node->next = stack->top;
-    stack->top = node;
-    printf("%d pushed to the stack.\n", data);
-}
-
-// Function to pop an element from the stack
-int pop(struct Stack* stack) {
-    if (isEmpty(stack)) {
-        printf("Stack is empty. Cannot pop.\n");
-        exit(1);
+    q=enqueue(q,12);
+    q=enqueue(q,13);
+    for(int i=q->front+1;i<=q->rear;i++){
+        printf("%d\n",q->arr[i]);
     }
-    struct Node* temp = stack->top;
-    int poppedData = temp->data;
-    stack->top = temp->next;
-    free(temp);
-    return poppedData;
-}
-
-int main() {
-    struct Stack* stack = createStack();
-
-    push(stack, 10);
-    push(stack, 20);
-    push(stack, 30);
-
-    printf("%d popped from the stack.\n", pop(stack));
-    printf("%d popped from the stack.\n", pop(stack));
-
-    return 0;
-}
+ }
