@@ -58,62 +58,31 @@ void postorder(node *root)
 }
 
 // Function to Search for an element in our binary search tree
-node *Search(node *root, int key)
-{
-    if (root == NULL)
-    {
+node* Search(node * root,int key){
+    if(root==NULL){
         return NULL;
     }
-    else if (root->data == key)
-    {
+    else if(root->data==key){
         return root;
     }
-    else if (root->data > key)
-    {
-        return Search(root->left, key);
+    else if(root->data>key){
+        return Search(root->left,key);
     }
-    else if (root->data < key)
-    {
-        return Search(root->right, key);
+    else if(root->data<key){
+        return Search(root->right,key);
     }
-}
-
-//Function to insert a node in the existing BST
-void insert(node* root,int key){
-    node *prev=NULL;
-    node *current=root;
-    while(current!=NULL){
-    prev=current;
-    if(key==prev->data){
-        printf("Invalid! Cannot add duplicate elements");
-        }
-    else if(key<prev->data){
-        current=current->left;
-        }
-    else if(key>prev->data){
-        current=current->right;
-        }
-    }
-    node *ptr=createnode(key);
-    if(key<prev->data){
-        prev->left=ptr;
-    }
-    else {
-        prev->right=ptr;
-    }
-}
+} 
 
 // Driver code
 int main()
 {
     // Creating our binary Tree
-    node *root = createnode(12);
-    // node *p1 = createnode(2);
-    // node *p2 = createnode(9);
-    // node *p11 = createnode(1);
-    // node *p12 = createnode(3);
-    // node *p21 = createnode(5);
-    
+    node *root = createnode(4);
+    node *p1 = createnode(2);
+    node *p2 = createnode(6);
+    node *p11 = createnode(1);
+    node *p12 = createnode(3);
+    node *p21 = createnode(5);
 
     // Linking the node together
     /*
@@ -123,16 +92,13 @@ int main()
          / \   /
         1   3 5
    */
-    // root->left = p1;
-    // root->right = p2;
-    // p1->left = p11;
-    // p1->right = p12;
-    // p2->left = p21;
-    // p2->right = NULL;
-    for(int i=0;i<11;i++){
-        int j=i;
-        insert(root,j);
-    }
+    root->left = p1;
+    root->right = p2;
+    p1->left = p11;
+    p1->right = p12;
+    p2->left = p21;
+    p2->right = NULL;
+
     // Preorder traversal in our binary tree
     printf("Post Order Traversal:");
     preorder(root);
@@ -145,7 +111,7 @@ int main()
     printf("\nPost order Traversal:");
     postorder(root);
 
-    // Searching for element in our BST
-    node *ptr = Search(root, 5);
-    printf("\nResult after searching is:%d", ptr->data);
+    //Searching for element in our BST
+    node* ptr=Search(root,7);
+    printf("\nResult after searching is:%d",ptr->data);
 }

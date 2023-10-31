@@ -86,6 +86,7 @@ void insert(node* root,int key){
     prev=current;
     if(key==prev->data){
         printf("Invalid! Cannot add duplicate elements");
+        exit(1);
         }
     else if(key<prev->data){
         current=current->left;
@@ -107,12 +108,12 @@ void insert(node* root,int key){
 int main()
 {
     // Creating our binary Tree
-    node *root = createnode(12);
-    // node *p1 = createnode(2);
-    // node *p2 = createnode(9);
-    // node *p11 = createnode(1);
-    // node *p12 = createnode(3);
-    // node *p21 = createnode(5);
+    node *root = createnode(4);
+    node *p1 = createnode(2);
+    node *p2 = createnode(9);
+    node *p11 = createnode(1);
+    node *p12 = createnode(3);
+    node *p21 = createnode(5);
     
 
     // Linking the node together
@@ -123,16 +124,13 @@ int main()
          / \   /
         1   3 5
    */
-    // root->left = p1;
-    // root->right = p2;
-    // p1->left = p11;
-    // p1->right = p12;
-    // p2->left = p21;
-    // p2->right = NULL;
-    for(int i=0;i<11;i++){
-        int j=i;
-        insert(root,j);
-    }
+    root->left = p1;
+    root->right = p2;
+    p1->left = p11;
+    p1->right = p12;
+    p2->left = p21;
+    p2->right = NULL;
+    insert(root,8);
     // Preorder traversal in our binary tree
     printf("Post Order Traversal:");
     preorder(root);

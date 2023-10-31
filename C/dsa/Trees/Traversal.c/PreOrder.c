@@ -36,20 +36,20 @@ void preorder(node *root)
 int main()
 {
     // Creating our binary Tree
-    node *root = createnode(1);
+    node *root = createnode(4);
     node *p1 = createnode(2);
-    node *p2 = createnode(3);
-    node *p11 = createnode(4);
-    node *p12 = createnode(5);
-    node *p21 = createnode(6);
+    node *p2 = createnode(6);
+    node *p11 = createnode(1);
+    node *p12 = createnode(3);
+    node *p21 = createnode(5);
 
     // Linking the node together
     /*
-             1
+             4
            /   \
-          2     3
+          2     6
          / \   /
-        4   5 6
+        1   3 5
    */
     root->left = p1;
     root->right = p2;
@@ -59,5 +59,5 @@ int main()
     p2->right = NULL;
 
     // Preorder traversal in our binary tree
-    preorder(root);
+    printf("Post Order Traversal:");preorder(root);
 }
