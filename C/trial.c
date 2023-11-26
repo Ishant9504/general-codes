@@ -1,30 +1,23 @@
 #include<stdio.h>
-int main(){ 
-        int num,i=0;
-        printf("Enter number of elements:");
-        scanf("%d",&num);
-        int sumeven,sumodd;
-        while (i<num){
-            int carnum,sumeven=0,sumodd=0;
-            printf("Enter license number:");
-            scanf("%d",&carnum);
-            while (carnum!=0){
-                int digit = carnum%10;
-                if(digit%2==0){
-                    sumeven+=digit;
-                }
-                else sumodd+=digit;
-                carnum/=10;    
-            }
-            printf("sum of even number:%d\n",sumeven);
-            printf("sum of odd number:%d\n",sumodd);
-            if (sumeven%4==0||sumodd%3==0){
-               printf("yes\n");
-            } 
-            else printf("no\n");
-           i++;
-        }
-    }
-       
+#include<string.h>
+#include<stdlib.h>
 
+typedef struct student{
+    char name[25];
+    char class[10];
+    int roll_number;
+    struct student * next;
+}student;
 
+int main(){
+    student * s1=(student*)malloc(sizeof(student));
+    strcpy(s1->name,"amam");
+    strcpy(s1->class,"CSE 1");
+    s1->roll_number=001;
+    s1->next=NULL;
+
+    printf("%s\n",s1->name);
+    printf("%s\n",s1->class);
+    printf("%d\n",s1->roll_number);
+
+}
