@@ -26,6 +26,12 @@ int main(){
     for(int i=0;i<vertices.size();i++){
         std::cout<<vertices[i]<<std::endl;
     }
+    for(const vertex& v: vertices){
+        std::cout<<v<<std::endl;
+    }
+    vertices.clear();
+    vertices.erase(vertices.begin());
+    std::cout<<vertices[0];
     return 0;
 
 }
