@@ -1,10 +1,11 @@
 //bubble sort
 #include<stdio.h>
+#include<stdlib.h>
 int main(){
     int size;
     printf("Enter size of array:");
     scanf("%d",&size);
-    int arr[size];
+    int* arr=(int*)malloc(size*sizeof(int));
     for(int i=0;i<size;i++){
         printf("Enter element %d of array:",i+1);
         scanf("%d",&arr[i]);
@@ -28,5 +29,4 @@ int main(){
     
    
 }
-printf("\n%d",arr[size-2]);
 }
