@@ -1,3 +1,4 @@
 *.exe
 CPP/matrixmult.cpp
 git*
+CPP/trials/bubblesrt.cpp

@@ -1,0 +1,35 @@
+#Open Hashing Algorithm
+
+<<<<<<<<<<<<<<<<<<START>>>>>>>>>>>>>>>>>>>
+
+*  first of all we need a structure that'll store some data and our key
+*  then we need a node that'll store the structure above 
+*  then we need a hashtable that'll store the above mentioned node using the hash function and key value index
+
+
+-> To implement this we first create our data containing struct
+-> We have a key value as a data member for it
+-> We then create a structure node thatll contain this data struct and the adress of next node
+-> Then a hashtable that'll contain an array of node data type
+
+
+CREATENEW Function for data member:
+1  )  we will input values for data members
+2  )  we will store this created struct element in a new node
+3  )  we will then use hash function on the key value of our data member to get our index
+4  )  now in our one single hash table for the entire program we'll check if the index returned from step 3 is empty
+5.a)  if it is empty then we'll just add the node to the address of the index in hashtable
+5.b)  if it is not empty then we'll traverse our linked list till the last node is reached and add our node there
+
+
+DISPLAY Function for user data:
+1      )   we will take key value as an argument
+2      )   will use our hash function to find the index to be checked
+3.A    )   if index empty no such elememt found in our hashtable
+3.B    )   if not empty look at value of first node
+3.B.i  )   if value of key matches display the data of that data member
+3.B.ii )   if value of key doesnt match first node traverse through the linked list if found display data
+3.B.iii)   else display element not found
+
+<<<<<<<<<<<<<<<<<<<EXIT>>>>>>>>>>>>>>>>>>>	 
+	
