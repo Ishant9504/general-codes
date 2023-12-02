@@ -21,6 +21,28 @@ node *createnode(int data)
     return ptr;
 }
 
+node* create(){
+    node* ptr=(node*)malloc(sizeof(node));
+    if(ptr==NULL){
+        printf("Memory allocation failed\n");
+        return;
+    }
+    int data;
+    printf("\nenter data for element:");
+    scanf("%d",&data);
+    ptr->data=data;
+    if(data==-1){
+        return NULL;
+    }
+    
+        printf("\nEnter elements on the left");
+        ptr->left=create();
+        printf("\nEnter elements on the right");
+        ptr->right=create();
+    
+    return ptr;
+}
+
 // Function for preOrder Traversal in our tree
 void preorder(node *root)
 {
@@ -115,7 +137,8 @@ int main()
     node *p12 = createnode(3);
     node *p21 = createnode(5);
     
-
+    node* root1=create();
+    inOrder(root1);
     // Linking the node together
     /*
              4
