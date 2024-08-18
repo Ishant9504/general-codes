@@ -1,0 +1,134 @@
+include header files
+
+declare swap function to swap to values-pass by reference
+
+#ALGORITHM FOR QUICK SORT IMPLEMENTATION
+declare a partition function(int arr[],int low,int high) with return type int
+{
+int i=low+1,j=high;
+int pivot=arr[low];
+while(i<=j){
+	while(i<=j && arr[i]<=pivot){i++}
+	while(i<=j && arr[j}>pivot){j--}
+	if(i<j){swap(&arr[i],&arr[j])}
+swap(&arr[low],&arr[j]);
+return j;//index of our pivot element now
+}
+
+declare the quick sort function with return type void and argument list(int arr[],int low,int high)
+{
+int j;
+if(low<high)//checking if there is atleast more than one element
+	{
+	int j=partition(arr,low,high);//initialize the variable j with index of the pivot
+	quickSort(arr,low,j);//perform quick sort recursively on the left half of pivot
+	quickSort(arr,j+1,high);//perform quick sort recursively on the right half of the pivot
+	}
+}
+
+
+
+#ALGORITHM FOR MERGE SORT IMPLEMENTATION
+void merge(int arr[],int left,int mid,int right){
+	int i,j,k;
+	int n1=mid-left+1;
+	int n2=right-mid;
+	
+	int L[n1],R[n2];
+	
+	if(i=0;i<n1;i++){	L[i]=arr[left+i];	}
+	if(j=0;j<n2;j++){	R[j]=arr[mid+1+j];
+	
+	i=j=0,k=left;
+
+	while(i<n1 && j<n2){
+		if(R[i]>L[j]	{	arr[k++]=R[i++]	}
+		else		{	arr[k++]=L[j++]	}
+	}
+	
+	while(i<n1)	{	arr[k++]=R[i++]	}
+	while(j<n2)	{	arr[k++]=L[j++]	}
+	}
+}
+
+void mergeSort(int arr[],int left,int right){
+	if(left<right){
+		int mid=(left+right)/2;
+		mergeSort(arr,left,mid);
+		mergeSort(arr,mid+1,right);	
+		merge(arr,left,mid,right);
+	}
+}
+
+//ALGORITHM FOR HEAP SORT IMPLEMENTATION
+void heapify(int arr[],int size,int rootIndex)
+{
+	int largest=rootIndex;
+	int left=2*rootIndex+1;
+	int right=2*rootIndex+2;
+	
+	if(left<size && arr[largest]<arr[left]){	largest=left;	}
+	if(right<size && arr[largest]<arr[right]){	largest=right;	}
+	if(largest!=rootIndex){ swap(&arr[largest],&arr[rootIndex]); heapify(arr,size,largest);	}
+}
+
+void heapSort(int arr[],int size)
+{
+	for(int i=size/2-1;i>=0;i--){	heapify(arr,size,i); }
+	for(int i=size-1;i>=0;i--){
+		swap(&arr[0],&arr[i]);
+		heapify(arr,i,0);
+	}
+}
+
+//ALGORITHM FOR BUBBLE SORT ALGORITHM
+void bubbleSort(int arr[],int size)
+{
+	for(int i=0;i<size-1;i++){
+		for(int j=0;j<size-i-1;j++){
+			if(arr[j]>arr[j+1]){
+				swap(&arr[j],&arr[j+1]);
+			}
+		}
+	}
+}		
+
+
+#ALGORITHM FOR INSERTION SORT ALGORITHM
+void insertionSort(int arr[],int size)
+{
+	int j,key;
+	for(int i=1;i<size;i++){
+		key=arr[i];
+		j=i-1;
+		while(j>=0 && arr[j]>key){
+			swap(&arr[j],&arr[j+1]);
+			j--;
+		}
+	arr[j+1]=key;
+	}
+}
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
